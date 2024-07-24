@@ -112,7 +112,7 @@ document.addEventListener('DOMContentLoaded', function() {
         song.addEventListener('click', function() {
             currentIndex = index;
             loadSong(currentIndex);
-            // playSong();
+            playSong();
         });
     });
 
@@ -168,3 +168,4 @@ document.addEventListener('DOMContentLoaded', function() {
 
     loadSong(currentIndex);
 });
+
