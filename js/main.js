@@ -19,7 +19,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const medidorTiempo = document.querySelector('#medidorTiempo');
     const barraDeTiempo = document.querySelector('#barraDeTiempo');
 
-
     let currentIndex = 0;
     let isRepeating = false; 
 
@@ -33,11 +32,9 @@ document.addEventListener('DOMContentLoaded', function() {
         nombreCancion.textContent = title;
         autorCancion.textContent = autor;
         audioSource.src = src;
-        songImage.style.backgroundImage = `url(${img})`;
-        listaCanciones.classList.remove('active')
-        
         audioPlayer.load();
-        // audioPlayer.play();
+        songImage.style.backgroundImage = `url(${img})`;
+        listaCanciones.classList.remove('active');
     }
 
     function playSong() {
@@ -53,18 +50,17 @@ document.addEventListener('DOMContentLoaded', function() {
         botonPausa.style.display = "none";
         audioPlayer.pause();
     }
-    
 
     function playNextSong() {
         currentIndex = (currentIndex + 1) % songs.length;
         loadSong(currentIndex);
-        // playSong();
+        playSong();
     }
 
     function playPreviousSong() {
         currentIndex = (currentIndex - 1 + songs.length) % songs.length;
         loadSong(currentIndex);
-        // playSong();
+        playSong();
     }
 
     function playRandomSong() {
@@ -76,8 +72,8 @@ document.addEventListener('DOMContentLoaded', function() {
     function toggleRepeat() {
         isRepeating = !isRepeating;
         audioPlayer.currentTime = 0;
-        audioPlayer.play()
-        playSong()
+        audioPlayer.play();
+        playSong();
     }
 
     function handleSongEnd() {
@@ -112,12 +108,11 @@ document.addEventListener('DOMContentLoaded', function() {
         audioPlayer.currentTime = (clickPosition / width) * duration;
     }
 
-
     songs.forEach((song, index) => {
         song.addEventListener('click', function() {
             currentIndex = index;
             loadSong(currentIndex);
-            pauseSong();
+            // playSong();
         });
     });
 
@@ -141,7 +136,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-
     botonAleatorio.addEventListener('click', function() {
         playRandomSong();
     });
@@ -160,14 +154,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
     audioPlayer.addEventListener('ended', handleSongEnd);
 
-    botonListaCanciones.addEventListener('click', ()=>{
-        listaCanciones.classList.toggle('active')
-    })
+    botonListaCanciones.addEventListener('click', () => {
+        listaCanciones.classList.toggle('active');
+    });
     
-    
-    botonLike.addEventListener('click', () =>{
-        botonLike.classList.toggle('like')
-    })
+    botonLike.addEventListener('click', () => {
+        botonLike.classList.toggle('like');
+    });
 
     audioPlayer.addEventListener('timeupdate', updateBarProgres);
 
@@ -175,4 +168,3 @@ document.addEventListener('DOMContentLoaded', function() {
 
     loadSong(currentIndex);
 });
-
