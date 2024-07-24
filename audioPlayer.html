@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Reproductor de audio</title>
+</head>
+<body>
+    <header>
+        <div class="playList" id="playList">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                    <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
+                </svg>            
+                <span>Ir a la PlayList</span>
+        </div>
+    </header>
+    <main>
+        <div class="circulo" id="circulo">
+            <div class="imgCancion" id="imgCancion"></div>
+        </div>
+
+        <div class="extras" id="extras">
+            <div class="parteUno" id="parteUno">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart " id="botonLike" viewBox="0 0 16 16" class="botonLike" id="botonLike">
+                    <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143q.09.083.176.171a3 3 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15"/>
+                </svg>
+
+                <div class="textos" id="textos">
+                    <span id="nombreCancion" class="nombreCancion">Nombre de la canción </span>
+                    <br>
+                    <span id="autorCancion" class="autorCancion">Autor de la canción </span>
+                </div>
+
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-three-dots" viewBox="0 0 16 16">
+                    <path d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3"/>
+                  </svg>
+
+            </div>
+
+            <div class="reproductorAudio" id="reproductorAudio">
+
+                <audio id="audio-player" class="audio-player" controls>
+                    <source id="audio-source" src="" type="audio/mp3">
+                    Tu navegador no soporta el elemento de audio.
+                </audio>
+
+                <div class="barraDeTiempo" id="barraDeTiempo">
+                    <div class="medidorTiempo" id="medidorTiempo"></div>
+                </div>
+
+                <div class="medidoresDeTiempo">
+
+                    <span class="tiempoInicial" id="tiempoInicial">00:00</span>
+
+                    <span class="tiempoDuracion" id="tiempoDuracion">00:00</span>
+
+                </div>
+
+                <div class="botones" id="botones">
+
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-shuffle botonAleatorio" id="botonAleatorio" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M0 3.5A.5.5 0 0 1 .5 3H1c2.202 0 3.827 1.24 4.874 2.418.49.552.865 1.102 1.126 1.532.26-.43.636-.98 1.126-1.532C9.173 4.24 10.798 3 13 3v1c-1.798 0-3.173 1.01-4.126 2.082A9.6 9.6 0 0 0 7.556 8a9.6 9.6 0 0 0 1.317 1.918C9.828 10.99 11.204 12 13 12v1c-2.202 0-3.827-1.24-4.874-2.418A10.6 10.6 0 0 1 7 9.05c-.26.43-.636.98-1.126 1.532C4.827 11.76 3.202 13 1 13H.5a.5.5 0 0 1 0-1H1c1.798 0 3.173-1.01 4.126-2.082A9.6 9.6 0 0 0 6.444 8a9.6 9.6 0 0 0-1.317-1.918C4.172 5.01 2.796 4 1 4H.5a.5.5 0 0 1-.5-.5"/>
+                        <path d="M13 5.466V1.534a.25.25 0 0 1 .41-.192l2.36 1.966c.12.1.12.284 0 .384l-2.36 1.966a.25.25 0 0 1-.41-.192m0 9v-3.932a.25.25 0 0 1 .41-.192l2.36 1.966c.12.1.12.284 0 .384l-2.36 1.966a.25.25 0 0 1-.41-.192"/>
+                    </svg>
+
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-skip-start-fill botonPrev" id="botonPrev" viewBox="0 0 16 16">
+                        <path d="M4 4a.5.5 0 0 1 1 0v3.248l6.267-3.636c.54-.313 1.232.066 1.232.696v7.384c0 .63-.692 1.01-1.232.697L5 8.753V12a.5.5 0 0 1-1 0z"/>
+                    </svg>
+
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-play-circle botonPlay" id="botonPlay" viewBox="0 0 16 16">
+                        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
+                        <path d="M6.271 5.055a.5.5 0 0 1 .52.038l3.5 2.5a.5.5 0 0 1 0 .814l-3.5 2.5A.5.5 0 0 1 6 10.5v-5a.5.5 0 0 1 .271-.445"/>
+                    </svg>
+
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pause-circle botonPausa" id="botonPausa" viewBox="0 0 16 16">
+                        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
+                        <path d="M5 6.25a1.25 1.25 0 1 1 2.5 0v3.5a1.25 1.25 0 1 1-2.5 0zm3.5 0a1.25 1.25 0 1 1 2.5 0v3.5a1.25 1.25 0 1 1-2.5 0z"/>
+                      </svg>
+
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-skip-end-fill botonNext" id="botonNext" viewBox="0 0 16 16">
+                        <path d="M12.5 4a.5.5 0 0 0-1 0v3.248L5.233 3.612C4.693 3.3 4 3.678 4 4.308v7.384c0 .63.692 1.01 1.233.697L11.5 8.753V12a.5.5 0 0 0 1 0z"/>
+                    </svg>
+
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-repeat botonRepetir" id="botonRepetir" viewBox="0 0 16 16">
+                        <path d="M11 5.466V4H5a4 4 0 0 0-3.584 5.777.5.5 0 1 1-.896.446A5 5 0 0 1 5 3h6V1.534a.25.25 0 0 1 .41-.192l2.36 1.966c.12.1.12.284 0 .384l-2.36 1.966a.25.25 0 0 1-.41-.192m3.81.086a.5.5 0 0 1 .67.225A5 5 0 0 1 11 13H5v1.466a.25.25 0 0 1-.41.192l-2.36-1.966a.25.25 0 0 1 0-.384l2.36-1.966a.25.25 0 0 1 .41.192V12h6a4 4 0 0 0 3.585-5.777.5.5 0 0 1 .225-.67Z"/>
+                    </svg>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="listaDeCanciones" id="listaDecanciones">
+            <div class="titulo">
+                <h1>My Playlist</h1>
+            </div>
+            <ol>
+                <div class="reproducirMusica">
+                    <li class="ms" data-title="Bohemian Rapsody" data-src="audios/Queen - Bohemian Rhapsody (Lyrics In Spanish & English  Letras en Inglés y en Español).mp3" data-img="img/quenn.jpg" data-subtitle="Queen">
+                        <p>Bohemian Rapsody <br>Queen <img src="img/quenn.jpg" width="80px" height="80px" alt=""></p>
+                        
+                    </li>
+                </div>
+            </ol>
+            
+            <ol>
+                <div class="reproducirMusica">
+                    <li class="ms" data-title="Acá entre nos" data-src="audios/Acá Entre Nos.mp3" data-img="img/aca-entre-nos.jpg" data-subtitle="Vicente Fernandez">
+                        <p>Acá entre nos<br>Vicente Fernandez<img src="img/aca-entre-nos.jpg" width="80px" height="80px" alt=""></p>
+                    </li>
+                </div>
+            </ol>
+            
+            <ol>
+                <div class="reproducirMusica">
+                    <li class="ms" data-title="Caretas" data-src="audios/Caretas.mp3" data-img="img/caretas.jpg" data-subtitle="ismael miranda">
+                        <p>Caretas <br>Ismael Miranda<img src="img/caretas.jpg" width="80px" height="80px" alt=""></p>
+                    </li>
+                </div>
+            </ol>
+            
+            <ol>
+                <div class="reproducirMusica">
+                    <li class="ms" data-title="Deseandote" data-src="audios/Deseandote.mp3" data-img="img/deseandote.png" data-subtitle="Frankie Ruiz">
+                        <p>Deseandote <br>Frankie Ruiz<img src="img/deseandote.jpg" width="80px" height="80px" alt=""></p>
+                    </li>
+                </div>
+            </ol>
+            <ol>
+                <div class="reproducirMusica">
+                    <li class="ms" data-title="Esa Mujer" data-src="audios/Esa_Mujer.mp3" data-img="img/esa-mujer.jpg" data-subtitle="Tony Vega">
+                        <p>Esa Mujer <br>Tony Vega<img src="img/esa-mujer.jpg" width="80px" height="80px" alt=""></p>
+                    </li>
+                </div>
+            </ol>
+            <ol>
+                <div class="reproducirMusica">
+                    <li class="ms" data-title="Escombros" data-src="audios/Escombros.mp3" data-img="img/escombros.jpg" data-subtitle="Suprema corte">
+                        <p>Escombros<br>Suprema corte<img src="img/escombros.jpg" width="80px" height="80px" alt=""></p>
+                    </li>
+                </div>
+            </ol>
+            <ol>
+                <div class="reproducirMusica">
+                    <li class="ms" data-title="Ya Superame" data-src="audios/Grupo Firme -  Ya Superame - (Video Oficial).mp3" data-img="img/superame.jpg" data-subtitle="Grupo Firme">
+                        <p>Grupo Firme -Ya Superame<br>Grupo Firme<img src="img/superame.jpg" width="80px" height="80px" alt=""></p>
+                    </li>
+                </div>
+            </ol>
+            <ol>
+                <div class="reproducirMusica">
+                    <li class="ms" data-title="Siempre Sere" data-src="audios/Siempre Sere.mp3" data-img="img/siempre_sere.jpg" data-subtitle="Tito Rojas">
+                        <p>Siempre Sere<br>Tito Rojas<img src="img/siempre_sere.jpg" width="80px" height="80px" alt=""></p>
+                    </li>
+                </div>
+            </ol>
+            <ol>
+                <div class="reproducirMusica">
+                    <li class="ms" data-title="Qué de Raro Tiene" data-src="audios/Qué de Raro Tiene.mp3" data-img="img/raro-tiene.jpg" data-subtitle="Vicente Fernandez">
+                        <p>Qué de Raro Tiene<br>Vicente Fernandez<img src="img/raro-tiene.jpg" width="80px" height="80px" alt=""></p>
+                    </li>
+                </div>
+            </ol>
+        </div>
+    </main>
+
+<script src="js/main.js"></script>
+</body>
+</html>

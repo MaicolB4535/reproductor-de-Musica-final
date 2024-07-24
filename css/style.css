@@ -1,0 +1,309 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+:root{
+    --color-uno: #07161d;
+    --color-dos: #133c3e;
+    --color-tres: #02524f;
+    --color-cuatro: #fd7d02;
+    --color-cinco: #fd9e02;
+    --color-seis: #affe38;
+    --primary-font: "Bebas Neue", sans-serif;
+    --secondary-font: "Kanit", sans-serif;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* border: 2px solid red; */
+}
+
+body{
+    background-image: url('../img/nuevoFondo.jpg');
+    background-position: center;
+}
+
+header .playList{
+    background: var(--color-tres);
+    width: 80%;
+    height: 60px;
+    border-radius: 80px;
+    margin: 6% auto;
+    box-shadow:  7px 7px 12px #012120,
+    -1px -10px 60px #03837e;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 6%;
+    text-decoration: none;
+}
+
+header .playList span{
+    font-family: var(--primary-font);
+    color: #fff;
+    font-size: 30px;
+}
+
+header .playList svg{
+    width: 35px;
+    height: 35px;
+    color: #fff;
+    font-weight: 900;
+}
+
+main .circulo{
+    width: 370px;
+    height: 370px;
+    border-radius: 100%;
+    margin: 15% auto;
+    box-shadow:  -45px -45px 90px #012d2b,
+             45px 0px 200px #037773;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+main .circulo .imgCancion{
+    background-image: url("../img/albumqueen.jpg");
+    background-size: cover;
+    background-position: center;
+    border-radius: 100%;
+    width: 280px;
+    height: 280px;
+    border: 10px solid var(--color-uno);
+    box-sizing: content-box;
+    animation: girar 6s linear infinite;
+}
+
+@keyframes girar {
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+
+main .extras .parteUno{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5%;
+    margin: 10%;
+    width: 80%;
+}
+
+main .extras .parteUno span{
+    font-size: 18px;
+    font-family: var(--secondary-font);
+    color: #fff;
+    width: 20px;
+}
+
+main .extras .parteUno svg{
+    width: 45px;
+    height: 45px;
+    color: #fff;
+    transition: .5s ease all;
+}
+
+main .extras .parteUno svg:first-child.like{
+    color: var(--color-seis);
+    transform: scale3d(0.7);
+}
+
+main .extras .parteUno svg:last-child{
+    margin-left: 40px;
+}
+   
+
+main .extras .reproductorAudio{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+main .extras .reproductorAudio .audio-player{
+    display: none;
+}
+
+main .extras .reproductorAudio .barraDeTiempo{
+    width: 85%;
+    height: 8px;
+    background: var(--color-uno);
+    position: relative;
+}
+
+main .extras .reproductorAudio .barraDeTiempo .medidorTiempo{
+    position: absolute;
+    left: 0;
+    top: -8px;
+    right: unset;
+    width: 23px;
+    height: 23px;
+    background: var(--color-seis);
+    border-radius: 100%;
+}
+
+main .extras .reproductorAudio .medidoresDeTiempo{
+    padding: 20px;
+    color: var(--color-cinco);
+    font-weight: 500;
+    display: flex;
+    justify-content: space-between;
+    width: 92%;
+    font-family: var(--secondary-font);
+}
+
+main .extras .reproductorAudio .botones{
+    width: 100%;
+    height: 20%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    color: var(--color-seis);
+}
+
+main .extras .reproductorAudio .botones .botonPlay, main .extras .reproductorAudio .botones .botonPausa{
+    width: 25%;
+    height: 25%;
+}
+
+main .extras .reproductorAudio .botones .botonPausa{
+    display: none;
+}
+
+main .extras .reproductorAudio .botones .botonPrev, main .extras .reproductorAudio .botones .botonNext{
+    height: 13%;
+    width: 11%;
+}
+
+main .extras .reproductorAudio .botones .botonAleatorio, main .extras .reproductorAudio .botones .botonRepetir{
+    height: 9%;
+    width: 8%;
+}
+
+
+/* estilos de la lista de canciones */
+
+.listaDeCanciones {
+    background: linear-gradient(to right, #02524f, #00a86b);
+    height: 100vh;
+    width: 100vw;
+    display: none;  
+    position: fixed;
+    top: 0;         
+    left: -100%;    
+    transition: 5s ease all;
+    z-index: 20; 
+    overflow: scroll;
+}
+
+
+.listaDeCanciones.active {
+    display: block;
+    left: 0;
+    
+}
+
+.titulo{
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    text-align: center;
+    margin: 50px;
+    font-size: 25px;
+    color: #fd7d02;
+    border-bottom: solid #feb238;
+    display: block;
+}
+
+p{
+    font-family: "Kanit", sans-serif;
+    font-weight: bold;
+    font-style: normal;
+    font-size: 25px;
+    color: #07161d ;
+    display: flex !important;
+    justify-content: space-between;
+    padding-left: 10px;
+}
+
+ol{
+    background: linear-gradient(to right, #feb238, #02524f);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border-end-end-radius: 100px;
+    border-start-end-radius: 100px;
+    padding: 20px;
+    margin-right: 20px;
+    margin-bottom: 25px;
+    /* border-radius: 25px; */
+    box-shadow: 4px 4px 10px rgb(0, 0, 0),
+    -4px -4px 8px rgba(255, 255, 255, 0.342);
+}
+
+li{
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.ms{
+    border-left: solid #133c3e;
+    width: 100%;
+}
+
+p img{
+    display: flex;
+    width: 30%;
+    height: 30%; 
+    border-radius: 100%;
+    border: solid #fd9e02 ;
+    transition: 0.3s;
+    animation: girar 10s linear infinite;
+}
+
+@keyframes girar {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.buttones {
+    background: #133c3e;
+    color: white;
+    border: none;
+    border-radius: 100px;
+    margin-left: 0px;
+    margin-top: 120px;
+    display: block;
+    /* margin-right: 10px; */
+    padding-left: 35px;
+    padding-right: 35px;
+    height: 50px;
+    margin-bottom: 15px;
+    cursor: pointer;
+    transition: 0.3s;
+    font-size: 30px;
+}
+
+.buttones:hover {
+    background: #fd7d02;
+    color: #fd7d02;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.336),
+    -4px -4px 8px rgba(255, 255, 255, 0.37);
+}
+
+@media(min-width: 500px ){
+    body{
+        background-position: center;
+        background-size: cover;
+        object-fit: fill;
+    }
+}
