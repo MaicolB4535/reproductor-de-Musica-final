@@ -33,11 +33,11 @@ document.addEventListener('DOMContentLoaded', function() {
         nombreCancion.textContent = title;
         autorCancion.textContent = autor;
         audioSource.src = src;
-        audioPlayer.load();
         songImage.style.backgroundImage = `url(${img})`;
         listaCanciones.classList.remove('active')
-
-        audioPlayer.play()
+        
+        audioPlayer.load();
+        // audioPlayer.play();
     }
 
     function playSong() {
@@ -58,13 +58,13 @@ document.addEventListener('DOMContentLoaded', function() {
     function playNextSong() {
         currentIndex = (currentIndex + 1) % songs.length;
         loadSong(currentIndex);
-        playSong();
+        // playSong();
     }
 
     function playPreviousSong() {
         currentIndex = (currentIndex - 1 + songs.length) % songs.length;
         loadSong(currentIndex);
-        playSong();
+        // playSong();
     }
 
     function playRandomSong() {
@@ -117,7 +117,7 @@ document.addEventListener('DOMContentLoaded', function() {
         song.addEventListener('click', function() {
             currentIndex = index;
             loadSong(currentIndex);
-            playSong();
+            pauseSong();
         });
     });
 
@@ -172,5 +172,7 @@ document.addEventListener('DOMContentLoaded', function() {
     audioPlayer.addEventListener('timeupdate', updateBarProgres);
 
     barraDeTiempo.addEventListener('click', setProgress);
+
+    loadSong(currentIndex);
 });
 
